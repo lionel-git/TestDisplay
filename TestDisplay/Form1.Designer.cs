@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.textBoxData = new System.Windows.Forms.TextBox();
+            this.listBoxDatas = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxData
@@ -37,17 +40,38 @@
             this.textBoxData.Multiline = true;
             this.textBoxData.Name = "textBoxData";
             this.textBoxData.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxData.Size = new System.Drawing.Size(773, 461);
+            this.textBoxData.Size = new System.Drawing.Size(773, 225);
             this.textBoxData.TabIndex = 0;
+            // 
+            // listBoxDatas
+            // 
+            this.listBoxDatas.ColumnWidth = 100;
+            this.listBoxDatas.FormattingEnabled = true;
+            this.listBoxDatas.Location = new System.Drawing.Point(815, 13);
+            this.listBoxDatas.MultiColumn = true;
+            this.listBoxDatas.Name = "listBoxDatas";
+            this.listBoxDatas.Size = new System.Drawing.Size(254, 472);
+            this.listBoxDatas.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 244);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(773, 458);
+            this.dataGridView1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 501);
+            this.ClientSize = new System.Drawing.Size(1327, 758);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.listBoxDatas);
             this.Controls.Add(this.textBoxData);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -56,6 +80,8 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBoxData;
+        private System.Windows.Forms.ListBox listBoxDatas;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

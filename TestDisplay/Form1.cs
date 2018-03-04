@@ -21,6 +21,9 @@ namespace TestDisplay
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
+
+            listBoxDatas.DataSource = new List<DataSummary>() { new DataSummary(), new DataSummary() };
+
         }
 
         void Form1_DragEnter(object sender, DragEventArgs e)
