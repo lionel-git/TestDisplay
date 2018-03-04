@@ -15,6 +15,8 @@ namespace TestDisplay
     {
         private FileData _fileData;
 
+        List<DataSummary> _dataSummary;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,8 +24,14 @@ namespace TestDisplay
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
 
-            listBoxDatas.DataSource = new List<DataSummary>() { new DataSummary(), new DataSummary() };
+            _dataSummary = new List<DataSummary>() { new DataSummary(), new DataSummary() };
+            listBoxDatas.DataSource = _dataSummary;
 
+            var bList = new BindingList<DataSummary>(_dataSummary);
+            var source = new BindingSource(bList, null);
+
+            dataGridView1.DataSource = source;
+            dataGridView1.RefreshEdit();
         }
 
         void Form1_DragEnter(object sender, DragEventArgs e)
@@ -38,6 +46,16 @@ namespace TestDisplay
             foreach (string file in files)
                 _fileData = new FileData(file);
             textBoxData.Text = _fileData.Text;
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("Clicked");
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MessageBox.Show("Row header Clicked");
         }
     }
 }
