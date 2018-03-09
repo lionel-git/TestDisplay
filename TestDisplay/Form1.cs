@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace TestDisplay
 
         List<DataSummary> _dataSummary;
 
-        public Form1()
+        public Form1(string[] args)
         {
             InitializeComponent();
             this.AllowDrop = true;
@@ -33,7 +34,16 @@ namespace TestDisplay
             dataGridView1.DataSource = _dataSummary;
             dataGridView1.RefreshEdit();
 
-          
+            string msg = "";
+            if (args!=null)
+            foreach (var arg in args)
+            {
+                if (Path.GetExtension(arg) == ".toto")
+                    msg += $"Should handle file {arg} | ";
+                else
+                    msg += "Got file {arg} | ";
+            }
+            textBoxData.Text = msg;
 
         }
 

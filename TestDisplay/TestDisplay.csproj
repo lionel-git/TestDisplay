@@ -26,8 +26,8 @@
     <ProductName>Test Display</ProductName>
     <PublisherName>LD Corp</PublisherName>
     <SuiteName>LD Suite</SuiteName>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>1.0.2.%2a</ApplicationVersion>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>1.0.7.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,6 +71,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>TestDisplay_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>37349.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -139,6 +142,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="37349.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".toto">
+      <Visible>False</Visible>
+      <Description>Test association</Description>
+      <Progid>MyDisplay</Progid>
+      <DefaultIcon>37349.ico</DefaultIcon>
+    </FileAssociation>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
