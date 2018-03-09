@@ -27,11 +27,14 @@ namespace TestDisplay
             _dataSummary = new List<DataSummary>() { new DataSummary(), new DataSummary() };
             listBoxDatas.DataSource = _dataSummary;
 
-            var bList = new BindingList<DataSummary>(_dataSummary);
-            var source = new BindingSource(bList, null);
+            //var bList = new BindingList<DataSummary>(_dataSummary);
+            //var source = new BindingSource(bList, null);
 
-            dataGridView1.DataSource = source;
+            dataGridView1.DataSource = _dataSummary;
             dataGridView1.RefreshEdit();
+
+          
+
         }
 
         void Form1_DragEnter(object sender, DragEventArgs e)

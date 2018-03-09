@@ -13,7 +13,7 @@ namespace MyData
         public DateTime FileDate { get; set; }
 
         public string Name { get; set; }       
-        public string FormatedDate
+       public string FormatedDate
         {
             get
             {
