@@ -38,10 +38,22 @@ namespace TestDisplay
             if (args!=null)
             foreach (var arg in args)
             {
-                if (Path.GetExtension(arg) == ".toto")
-                    msg += $"Should handle file {arg} | ";
-                else
-                    msg += "Got file {arg} | ";
+                    if (Path.GetExtension(arg) == ".toto")
+                    {
+                        msg += $"Should handle file {arg} | ";
+                        try
+                        {
+                            var content = File.ReadAllText(new Uri(arg).LocalPath); // p = new Uri(p).LocalPath;
+                            File.WriteAllText(@"d:\tmp\test.log", content);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            File.WriteAllText(@"d:\tmp\test.log", arg +"\n"+e.ToString());
+                        }
+                    }
+                    else
+                        msg += "Got file {arg} | ";
             }
             textBoxData.Text = msg;
 
@@ -69,6 +81,12 @@ namespace TestDisplay
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             MessageBox.Show("Row header Clicked");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var res=folderBrowserDialog1.ShowDialog();
+            Console.WriteLine(res);
         }
     }
 }
